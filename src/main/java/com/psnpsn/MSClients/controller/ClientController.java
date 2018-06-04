@@ -29,7 +29,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 public class ClientController {
     @Autowired
     private GenericService cservice;
-    
+   
     @PreAuthorize("hasAuthority('ADMIN_USER') or hasAuthority('STANDARD_USER')")
     @GetMapping("/clients")
     public List<Client> getAllClients() {
@@ -39,9 +39,9 @@ public class ClientController {
 	return list;
     }
     @PreAuthorize("hasAuthority('ADMIN_USER') or hasAuthority('STANDARD_USER')")
-    @GetMapping("/clients/{id}")
-    public Client getClientById(@PathVariable long id) {
-        return cservice.getOne(id);
+    @GetMapping("/clients/{username}")
+    public Client getClientById(@PathVariable String username) {
+        return cservice.getByUsername(username);
     }
     
     @PostMapping("/clients")

@@ -23,6 +23,7 @@ public class CustomTokenEnhancer implements TokenEnhancer {
      OAuth2Authentication authentication) {
         Map<String, Object> additionalInfo = new HashMap<>();
         additionalInfo.put("username", authentication.getName());
+        additionalInfo.put("roles", authentication.getAuthorities());
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(additionalInfo);
         return accessToken;
     }

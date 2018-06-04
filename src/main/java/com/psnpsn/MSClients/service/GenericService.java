@@ -18,4 +18,5 @@ public interface GenericService {
     Client add(Client entity);
     Client update(long id);
     void delete(Client entity);
+    Client getByUsername(String username);
 }

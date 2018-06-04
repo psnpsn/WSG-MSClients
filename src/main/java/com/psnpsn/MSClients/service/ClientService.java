@@ -54,17 +54,22 @@ public class ClientService implements GenericService {
         Role role = roleDAO.findByRoleName("STANDARD_USER");
         List<Role> list = new ArrayList<>();
         list.add(role);
-        //client.setRoles(list);
+        client.setRoles(list);
         return clientDAO.save(client);
     }
-
+    
     @Override
-    public Client update(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Client getByUsername(String username) {
+        return clientDAO.findByUsername(username);
     }
 
     @Override
     public void delete(Client car) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Client update(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
